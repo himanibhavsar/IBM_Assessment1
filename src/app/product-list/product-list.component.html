@@ -1,0 +1,65 @@
+<!-- <ul>
+    <li *ngFor="let item of products | async">
+    {{item | json}}
+    </li>
+  </ul>  -->
+
+<div class="example-container mat-elevation-z8">
+  <div class="example-table-container">
+    <table [dataSource]="dataSource" mat-table>
+      <tbody>
+        <ng-container matColumnDef="id">
+          <th *matHeaderCellDef mat-header-cell>Id</th>
+          <td *matCellDef="let element" mat-cell>{{ element.id }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="blend_name">
+          <th *matHeaderCellDef mat-header-cell>Blend Name</th>
+          <td *matCellDef="let element" mat-cell>{{ element.blend_name }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="origin">
+          <th *matHeaderCellDef mat-header-cell>Origin</th>
+          <td *matCellDef="let element" mat-cell>{{ element.origin }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="variety">
+          <th *matHeaderCellDef mat-header-cell>Variety</th>
+          <td *matCellDef="let element" mat-cell>{{ element.variety }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="notes">
+          <th *matHeaderCellDef mat-header-cell>Notes</th>
+          <td *matCellDef="let element" mat-cell>{{ element.notes }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="intensifier">
+          <th *matHeaderCellDef mat-header-cell>Intensifier</th>
+          <td *matCellDef="let element" mat-cell>{{ element.intensifier }}</td>
+        </ng-container>
+
+        <tr
+          *matHeaderRowDef="displayedColumns; sticky: true"
+          mat-header-row
+        ></tr>
+        <tr *matRowDef="let row; columns: displayedColumns" mat-row></tr>
+      </tbody>
+    </table>
+
+    <table>
+      <tr *ngIf="!dataSource.data.length">
+        <td [attr.colspan]="displayedColumns.length" style="text-align: center">
+          No Records Found!
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <mat-paginator
+    [pageSizeOptions]="[10]"
+    [pageSize]="10"
+    aria-label="Select page of periodic elements"
+    showFirstLastButtons
+  >
+  </mat-paginator>
+</div>

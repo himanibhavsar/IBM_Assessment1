@@ -1,0 +1,10 @@
+.footer {
+  position: fixed;
+  bottom: 0%;
+}
+
+@media (max-width: 767.98px) {
+  .toolbar-name {
+    font-size: 14px;
+  }
+}
